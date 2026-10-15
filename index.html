@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ky">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10172f" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Кыргыз тили — интерактивдүү тест</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <header class="topbar">
+      <a href="#" class="brand">
+        <span class="brand-icon">К</span>
+        <span>БИЛИМ<span class="brand-dot">.</span></span>
+      </a>
+      <div class="subject-label">
+        <span class="status-dot"></span>
+        Кыргыз тили
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-tag"><span>✦</span> ИНТЕРАКТИВДҮҮ ТЕСТ</div>
+        <h1>Билимиңди<br /><span>сынап көр!</span></h1>
+        <p>
+          Байламтасыз тең байланыштагы татаал сүйлөм темасы боюнча билимиңди
+          текшер.
+        </p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-icon">📝</span>
+            <div>
+              <strong>10</strong>
+              <small>суроо</small>
+            </div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">⏱️</span>
+            <div>
+              <strong>5–7</strong>
+              <small>мүнөт</small>
+            </div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">🎯</span>
+            <div>
+              <strong>100%</strong>
+              <small>максат</small>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quiz-card" id="quizCard">
+        <div class="quiz-header">
+          <div>
+            <span class="eyebrow">БИЛИМИҢДИ ТЕКШЕР</span>
+            <h2 id="screenTitle">Тестке даярсыңбы?</h2>
+          </div>
+          <div class="question-counter" id="questionCounter">0 / 10</div>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div id="welcomeScreen" class="welcome-screen">
+          <div class="welcome-illustration">
+            <div class="illustration-circle">
+              <span>📚</span>
+            </div>
+            <span class="floating-icon float-a">✏️</span>
+            <span class="floating-icon float-b">💡</span>
+            <span class="floating-icon float-c">✓</span>
+          </div>
+
+          <h3>Өзүңдү сынай турган учур!</h3>
+          <p>
+            Ар бир суроону кунт коюп окуп, туура деп эсептеген жообуңду танда.
+            Акырында упайыңды жана ар бир суроонун туура жообун көрө аласың.
+          </p>
+
+          <div class="rules">
+            <div><span>✓</span> 10 суроо, ар бири 1 упай</div>
+            <div><span>✓</span> Жоопторду акырында текшерүү</div>
+            <div><span>✓</span> Тестти кайра тапшыруу мүмкүнчүлүгү</div>
+          </div>
+
+          <button class="primary-button" id="startButton">
+            Тестти баштоо <span>→</span>
+          </button>
+        </div>
+
+        <div id="questionScreen" class="question-screen hidden">
+          <div class="question-meta">
+            <span class="question-tag" id="questionTag">СУРОО 01</span>
+            <span class="question-points">● 1 упай</span>
+          </div>
+
+          <h3 id="questionText"></h3>
+          <div class="answers" id="answers"></div>
+
+          <div class="quiz-footer">
+            <span id="answeredLabel">Жооп танда</span>
+            <button class="primary-button" id="nextButton" disabled>
+              Кийинки <span>→</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="resultScreen" class="result-screen hidden">
+          <div class="result-icon" id="resultIcon">🏆</div>
+          <span class="eyebrow">ТЕСТ АЯКТАДЫ</span>
+          <h2 id="resultTitle">Азаматсың!</h2>
+          <p class="result-description" id="resultDescription"></p>
+
+          <div class="score-panel">
+            <div class="score-ring" id="scoreRing">
+              <div>
+                <strong id="scoreValue">0/10</strong>
+                <span>упай</span>
+              </div>
+            </div>
+            <div class="score-details">
+              <div class="score-detail correct-detail">
+                <span class="detail-symbol">✓</span>
+                <div>
+                  <strong id="correctCount">0</strong>
+                  <small>Туура жооп</small>
+                </div>
+              </div>
+              <div class="score-detail wrong-detail">
+                <span class="detail-symbol">×</span>
+                <div>
+                  <strong id="wrongCount">0</strong>
+                  <small>Туура эмес</small>
+                </div>
+              </div>
+              <div class="score-detail">
+                <span class="detail-symbol">%</span>
+                <div>
+                  <strong id="percentValue">0%</strong>
+                  <small>Натыйжа</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-actions">
+            <button class="primary-button" id="reviewButton">
+              Жоопторду текшерүү <span>↓</span>
+            </button>
+            <button class="secondary-button" id="restartButton">
+              ↻ Кайра тапшыруу
+            </button>
+          </div>
+
+          <div class="review-section hidden" id="reviewSection">
+            <div class="review-heading">
+              <div>
+                <span class="eyebrow">ТАЛДОО</span>
+                <h3>Жооптордун жыйынтыгы</h3>
+              </div>
+              <span class="review-count" id="reviewCount">10 суроо</span>
+            </div>
+            <div id="reviewList"></div>
+            <button
+              class="secondary-button full-button"
+              id="restartBottomButton"
+            >
+              ↻ Тестти кайра баштоо
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <span>БИЛИМ<span class="brand-dot">.</span></span>
+        <p>Оку, үйрөн, өнүк. ✨</p>
+      </footer>
+    </main>
+  </body>
+</html>
