@@ -278,12 +278,10 @@ function finishTest() {
   screenTitle.textContent = "Сенин жыйынтыгың";
   questionCounter.textContent = `${questions.length} / ${questions.length}`;
   progressFill.style.width = "100%";
-
   scoreValue.textContent = `${correct}/${questions.length}`;
   correctCount.textContent = correct;
   wrongCount.textContent = wrong;
   percentValue.textContent = `${percentage}%`;
-
   scoreRing.style.background = `conic-gradient(var(--green) ${percentage * 3.6}deg, #293351 ${percentage * 3.6}deg)`;
 
   if (percentage === 100) {
@@ -318,17 +316,13 @@ function renderReview() {
   questions.forEach((question, index) => {
     const userAnswer = selectedAnswers[index];
     const isCorrect = userAnswer === question.correct;
-
     const item = document.createElement("article");
     item.className = `review-item ${isCorrect ? "is-correct" : "is-wrong"}`;
-
     const top = document.createElement("div");
     top.className = "review-top";
-
     const number = document.createElement("span");
     number.className = "review-number";
     number.textContent = `СУРОО ${String(index + 1).padStart(2, "0")}`;
-
     const status = document.createElement("span");
     status.className = "review-status";
     status.textContent = isCorrect ? "✓ Туура" : "✕ Туура эмес";
@@ -362,7 +356,6 @@ function renderReview() {
     const explanation = document.createElement("p");
     explanation.className = "explanation";
     explanation.textContent = `💡 ${question.explanation}`;
-
     item.appendChild(explanation);
     reviewList.appendChild(item);
   });
