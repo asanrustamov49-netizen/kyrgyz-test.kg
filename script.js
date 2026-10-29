@@ -126,7 +126,6 @@ const questions = [
 const welcomeScreen = document.getElementById("welcomeScreen");
 const questionScreen = document.getElementById("questionScreen");
 const resultScreen = document.getElementById("resultScreen");
-
 const screenTitle = document.getElementById("screenTitle");
 const questionCounter = document.getElementById("questionCounter");
 const progressFill = document.getElementById("progressFill");
@@ -135,12 +134,10 @@ const questionText = document.getElementById("questionText");
 const answersContainer = document.getElementById("answers");
 const answeredLabel = document.getElementById("answeredLabel");
 const nextButton = document.getElementById("nextButton");
-
 const startButton = document.getElementById("startButton");
 const reviewButton = document.getElementById("reviewButton");
 const restartButton = document.getElementById("restartButton");
 const restartBottomButton = document.getElementById("restartBottomButton");
-
 const resultIcon = document.getElementById("resultIcon");
 const resultTitle = document.getElementById("resultTitle");
 const resultDescription = document.getElementById("resultDescription");
@@ -159,7 +156,6 @@ let testFinished = false;
 
 function scrollToQuiz() {
   const quizCard = document.getElementById("quizCard");
-
   if (!quizCard) return;
 
   const top = quizCard.getBoundingClientRect().top + window.scrollY;
@@ -180,7 +176,6 @@ function startTest() {
   resultScreen.classList.add("hidden");
   questionScreen.classList.remove("hidden");
   reviewSection.classList.add("hidden");
-
   screenTitle.textContent = "Суроого жооп бер";
   renderQuestion();
   requestAnimationFrame(() => {
@@ -195,9 +190,7 @@ function renderQuestion() {
   questionCounter.textContent = `${number} / ${questions.length}`;
   questionTag.textContent = `СУРОО ${String(number).padStart(2, "0")}`;
   questionText.textContent = question.question;
-
   progressFill.style.width = `${(currentQuestion / questions.length) * 100}%`;
-
   answersContainer.innerHTML = "";
   nextButton.disabled = selectedAnswers[currentQuestion] === null;
 
@@ -258,14 +251,12 @@ function nextQuestion() {
     currentQuestion++;
     renderQuestion();
 
-    // Плавно прокручиваем к тестовой карточке
     requestAnimationFrame(() => {
       scrollToQuiz();
     });
   } else {
     finishTest();
 
-    // После последнего вопроса показываем результат
     requestAnimationFrame(() => {
       scrollToQuiz();
     });
